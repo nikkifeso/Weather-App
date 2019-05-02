@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url("world-1138035.jpg");
+    background-position: -1%;
+   
+    align-items: center;
+
+}
+
+h1,h3{
+    color: aliceblue;
+    text-align: center;
+}
+
+.farenheit{
+  
+}
+
+.celsius{
+
+}
+
+.time{
+
+}
+
