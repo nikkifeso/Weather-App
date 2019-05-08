@@ -1,30 +1,30 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 body{
-    background-image: url("world-1138035.jpg");
-    background-position: -1%;
-   
-    align-items: center;
-
+    background-color: mediumaquamarine
 }
-
-h1,h3{
+.container {
+    font-size: 15px;
     color: aliceblue;
-    text-align: center;
+    text-align: center
 }
 
-.farenheit{
-  
-}
-
-.celsius{
-
-}
-
-.time{
+h3 {
+    font-size: 35px;
+    color: aliceblue;
+    text-align: center
 
 }
 
+#farenheit{
+    position: relative;
+    top: 105px;
+    left: 200px; 
+    font-size: 70px;
+
+}
+
+#celsius{
+    position: relative;
+    bottom: 45px;
+    right: 195px;
+    font-size: 70px;
+}
