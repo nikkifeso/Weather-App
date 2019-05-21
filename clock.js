@@ -5,34 +5,39 @@ let searchBtn =document.getElementById('searchBtn');
 let searchText = document.getElementById('searchText');
 
 searchText.addEventListener('keypress', function(e) {
-    findWeather();  
-    return enterKey(event);
+    if (event.keyCode === 13){
+        event.preventDefault();
+        findWeather();  
+    }
+    // return enterKey(event);
 });
 
 searchBtn.addEventListener('click', function(e) {
-   
-    findWeather();  
-    return searchButton(event);
-});
-
-function enterKey(event){
-    if (event.keyCode === 13){
-        event.preventDefault();
-    }
-}
-
-function searchButton(event){
     if (event.button === 0){
         event.preventDefault();
+    findWeather();  
+    // return searchButton(event);
     }
-}
+});
+
+// function enterKey(event){
+//     if (event.keyCode === 13){
+//         event.preventDefault();
+//     }
+// }
+
+// function searchButton(event){
+//     if (event.button === 0){
+//         event.preventDefault();
+//     }
+// }
 
 function findWeather(){
     if (searchText.value === ''){
         alert('Enter a city');
     } else {
        var searchLink = "http://api.openweathermap.org/data/2.5/weather?q=" + searchText.value + "&appid=" + apiKey;
-       console.log(searchLink);
+       //console.log(searchLink);
        weatherResponse(httpGet(searchLink));
     }
 }
@@ -45,14 +50,17 @@ function weatherResponse(response){
     farenheit.innerHTML = parseInt(jsonObject.main.temp) + "°F";
     celsius.innerHTML = parseInt(jsonObject.main.temp -273) + "°C";
     image.src = "http://openweathermap.org/img/w/"+jsonObject.weather[0].icon+".png";
-    description.innerHTML = jsonObject.weather.description;
+    var desc = jsonObject.weather[0].description;
+    description.innerHTML = desc.toUpperCase();
+
+
    
 }
 
 function httpGet(theUrl){
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
+    xmlHttp.open("GET", theUrl, false); // false for synchronous request
+    xmlHttp.send(null);
     return xmlHttp.responseText;
 }
 // function findTime(){
