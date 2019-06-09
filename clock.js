@@ -9,16 +9,15 @@ searchText.addEventListener('keypress', function(e) {
         event.preventDefault();
         findWeather();  
     }
-    // return enterKey(event);
 });
 
 searchBtn.addEventListener('submit', function(e) {
-    if (event.button === 0){
+    if (event.keyCode === 0){
         event.preventDefault();
-    findWeather();  
-    // return searchButton(event);
+        findWeather();  
     }
 });
+
 
 // function enterKey(event){
 //     if (event.keyCode === 13){
@@ -33,14 +32,15 @@ searchBtn.addEventListener('submit', function(e) {
 // }
 
 function findWeather(){
-    if (searchText.value === ''){
+    if (! searchText.value){
         alert('Enter a city');
-    } else {
-       var searchLink = "http://api.openweathermap.org/data/2.5/weather?q=" + searchText.value + "&appid=" + apiKey;
+        return;
+    } 
+       var searchLink = "https://api.openweathermap.org/data/2.5/weather?q=" + searchText.value + "&appid=" + apiKey;
        //console.log(searchLink);
        weatherResponse(httpGet(searchLink));
     }
-}
+
 
 function weatherResponse(response){
     //console.log(response);
@@ -49,7 +49,7 @@ function weatherResponse(response){
     //console.log(locationTimezone);
     farenheit.innerHTML = parseInt(jsonObject.main.temp) + "°F";
     celsius.innerHTML = parseInt(jsonObject.main.temp -273) + "°C";
-    image.src = "http://openweathermap.org/img/w/"+jsonObject.weather[0].icon+".png";
+    image.src = "https://openweathermap.org/img/w/"+jsonObject.weather[0].icon+".png";
     var desc = jsonObject.weather[0].description;
     description.innerHTML = desc.toUpperCase();
 
