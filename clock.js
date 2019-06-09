@@ -12,7 +12,7 @@ searchText.addEventListener('keypress', function(e) {
     // return enterKey(event);
 });
 
-searchBtn.addEventListener('click', function(e) {
+searchBtn.addEventListener('submit', function(e) {
     if (event.button === 0){
         event.preventDefault();
     findWeather();  
@@ -36,7 +36,7 @@ function findWeather(){
     if (searchText.value === ''){
         alert('Enter a city');
     } else {
-       var searchLink = "http://api.openweathermap.org/data/2.5/weather?q=" + searchText.value + "&appid=" + apiKey;
+       var searchLink = "ws://api.openweathermap.org/data/2.5/weather?q=" + searchText.value + "&appid=" + apiKey;
        //console.log(searchLink);
        weatherResponse(httpGet(searchLink));
     }
@@ -49,7 +49,7 @@ function weatherResponse(response){
     //console.log(locationTimezone);
     farenheit.innerHTML = parseInt(jsonObject.main.temp) + "°F";
     celsius.innerHTML = parseInt(jsonObject.main.temp -273) + "°C";
-    image.src = "http://openweathermap.org/img/w/"+jsonObject.weather[0].icon+".png";
+    image.src = "ws://openweathermap.org/img/w/"+jsonObject.weather[0].icon+".png";
     var desc = jsonObject.weather[0].description;
     description.innerHTML = desc.toUpperCase();
 
