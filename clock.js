@@ -1,23 +1,20 @@
 const apiKey = 'a4ad750391482adc3a14e9858548191e';
-const timeKey ='iC2XDSjHwMgGRsEYGApjYSqYHacCWU';
+const timeKey = 'iC2XDSjHwMgGRsEYGApjYSqYHacCWU';
 let city = document.getElementById('searchText');
-let searchBtn =document.getElementById('searchBtn');
+let searchBtn = document.getElementById('searchBtn');
 let searchText = document.getElementById('searchText');
 
-searchText.addEventListener('keypress', function(e) {
+searchText.addEventListener('keypress', function(event) {
     if (event.keyCode === 13){
         event.preventDefault();
         findWeather();  
     }
 });
 
-searchBtn.addEventListener('submit', function(e) {
-    if (event.keyCode === 0){
-        event.preventDefault();
-        findWeather();  
-    }
-});
-
+const submitSearch = function(event){
+    event.preventDefault();
+    findWeather();
+}
 
 // function enterKey(event){
 //     if (event.keyCode === 13){
@@ -32,7 +29,7 @@ searchBtn.addEventListener('submit', function(e) {
 // }
 
 function findWeather(){
-    if (! searchText.value){
+    if (!searchText.value){
         alert('Enter a city');
         return;
     } 
