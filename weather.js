@@ -1,7 +1,7 @@
 const apiKey = 'a4ad750391482adc3a14e9858548191e';
 const timeKey ='iC2XDSjHwMgGRsEYGApjYSqYHacCWU';
 let city = document.getElementById('searchText');
-let searchBtn =document.getElementById('searchBtn');
+let searchBtn = document.getElementById('searchBtn');
 let searchText = document.getElementById('searchText');
 
 searchText.addEventListener('keypress', function(e) {
@@ -15,6 +15,7 @@ searchBtn.addEventListener('submit', function(e) {
     if (event.keyCode === 0){
         event.preventDefault();
         findWeather();  
+        console.log("Praise Jesus!")
     }
 });
 
